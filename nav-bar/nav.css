@@ -1,0 +1,67 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /*  background: linear-gradient(to right, #3b82f6, #06b6d4); */
+   background: url('../images/Background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Navigation Bar */
+.navbar {
+  position: fixed;      
+  top: 0;                 
+  left: 0;
+  width: 100%;            
+  z-index: 1000;            
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1e3a8a;
+  padding: 1rem 3rem;
+}
+
+.logo a {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+   padding: 0.5rem;
+}
+
+.logo a:hover {
+  background-color: white;
+  border-radius: 4px;
+  color: #1e3a8a;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.nav-links li a:hover {
+  background-color: white;
+  border-radius: 4px;
+  color: #1e3a8a;
+}

@@ -1,91 +1,90 @@
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #3b82f6, #06b6d4);
-  color: #333;
-}
-
-/* Navigation Bar */
-.navbar {
+/* Landing Page Container */
+.container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #333;
-  padding: 0.5rem 2rem;
-}
-
-.logo a {
-  color: white;
-  font-size: 1.2rem;
-  text-decoration: none;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem;
-  transition: background-color 0.3s;
-}
-
-.nav-links li a:hover {
-  background-color: #575757;
-  border-radius: 4px;
-}
-
-/* Landing Page */
-.frontpage {
-  height: calc(100vh - 60px);
-  display: flex;
-  justify-content: center;
-  align-items: center;     
-  text-align: center;
-  color: rgb(252, 252, 252);
-  padding: 20px;
-}
-
-.container {
-  max-width: 700px;
+  max-width: 1100px;
   margin: 0 auto;
-  margin-top: -10%;
-   margin-left: 26%; 
+  padding: 20px;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
+/* Text Content Section */
+.text-content {
+  flex: 1;
+  min-width: 300px;
+  color: white;
+  text-align: left;
+  margin-left: -50px;    
+  margin-right: 15px;  
+  position: relative;
+  top: -130px;          
+}
+
+/* Heading Style */
 .frontpage h1 {
-  font-size: 3.8rem;
+  font-size: 3.5rem;      
   margin-bottom: 20px;
+  padding-top: 200px; 
+  position: relative;  
+  left: -30px;         
+  white-space: nowrap;
 }
 
+/* Paragraph Style */
 .frontpage p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
+  font-size: 1.04rem;
+  margin-bottom: 40px;
+  padding-bottom: 2px;
+  margin-left: -30px; 
 }
 
+/* Call to Action Button */
 .cta-button {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   color: #3b82f6;
   padding: 12px 25px;
   border-radius: 8px;
-  text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative; 
+  left: -30px;     
 }
 
 .cta-button:hover {
   background-color: #3b82f6;
-  color: rgb(255, 255, 255);
+  color: white;
 }
+
+/* Header Image Style */
+.header-image {
+  flex: 1;
+  max-width: 700px;
+  height: auto;
+  left: 150px;
+  position: relative;
+  top: 10px;
+  width: 750px;
+  height: 750px;
+  border-radius: 10%;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+
+  animation: slideIn 2s ease-out forwards;
+  opacity: 0; /* Start invisible */
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
