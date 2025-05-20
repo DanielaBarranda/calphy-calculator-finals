@@ -1,6 +1,6 @@
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
@@ -8,14 +8,14 @@
 .container {
   width: 100%;
   height: 100vh;
-  background-image: url("../Pictures/BGS.jpg");
+  background-image: url("../Pictures/PHYSB.jpg");
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .calculator {
-  background-image: url("../Pictures/Phys.jpg");
+  background-image: url("../Pictures/Calc2.jpg");
   padding: 20px;
   border-radius: 10px;
   width: 550px;
@@ -54,6 +54,13 @@ button {
   margin-top: 10px;
 }
 
+button:hover {
+  background-color: aqua;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
 .display p {
   margin: 10px 0;
   font-size: 16px;
@@ -61,8 +68,14 @@ button {
 
 .GB-button {
   position: absolute;
-  
 
+}
+
+.GB-button:hover {
+  background-color: aqua;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
 
 }
 
@@ -72,3 +85,95 @@ button {
     margin-top: 10px;
 
 }
+
+.T-button:hover{
+  background-color: aqua;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.calculator-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.side-box {
+  height: 400px;
+  width: 200px;
+  background-color: #2aa4dd;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-box p {
+  font-size: 14px;
+  color: #333;
+}
+
+.side-box:hover {
+  background-color: aqua;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.side-box:hover .text-content {
+  opacity: 1;
+  
+}
+
+.left-box {
+  width: 400px;
+  height: 600px;
+
+}
+
+.right-box {
+  width: 400px;
+  height: 600px;
+
+}
+
+.text-content {
+   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  text-align: center;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.box-label {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: xx-large;
+  position: absolute;
+  color: #f2efef;
+  transition: opacity 1s ease-in-out;
+}
+
+.textPr {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: medium;
+  margin-bottom: 20px;
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
