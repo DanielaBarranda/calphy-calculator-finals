@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Calphy.css" />
+    <link rel="stylesheet" href="./nav-bar/nav.css">
+    <title>Document</title>
+</head>
+<body>
+    
+<!-- Navigation Bar-->
+  <div id="navbar-placeholder"></div>
+
+<div class="first-part">
+  <img src="./images/ImpulseandMomentun.png" alt="Impulse and Momentum" class="Title" />
+
+  <div class="text-section">
+    <img src="./images/Element.png" alt="Element" class="element-img" />
+    
+    <p>
+      <b>Impulse</b> and <b>momentum</b> are key physics concepts related to motion. <br> 
+      <b>Momentum</b> is the product of an object's mass and velocity—more mass or speed means more momentum.
+    </p>
+    <p> 
+      <b>Impulse</b> is the force applied over time that changes an object's momentum. <br>
+      In short, momentum describes current motion, while impulse explains how it changes.
+    </p>
+  </div>
+</div>
+
+<!-- Instructions -->
+  <div class="instruction-section">
+    <header>
+    <h2>Instruction</h2>
+    <p>
+      Input the values of force, time, mass, initial velocity, and final velocity to calculate the impulse and momentum instantly. 
+      Make sure to fill in all fields to get accurate results! This tool helps you understand how different factors affect an object's motion. 
+      Whether you're studying for class or solving physics problems, accurate inputs will give you the most reliable outcome.
+    </p>
+    </header>
+  </div>
+
+<!-- Calculator 
+  <div class="container">
+  <div class="calculator-layout">
+
+    <div class="calculator">
+      <h2>Impulse & Momentum Calculator</h2>
+    <div class="step" id="inputContainer"></div>
+
+      <div class="display" id="lastCalc" style="display: none">
+        <h1>Last Saved Input:</h1>
+        <pre id="lastCalcData"></pre>
+      </div>
+
+    <div class="display" id="results" style="display: none;">
+        <p id="impulseOutput"></p>
+        <p id="initialMomentumOutput"></p>
+        <p id="finalMomentumOutput"></p>
+        <button onclick="restart()">Start Over</button>
+      </div>
+    </div>
+  -->
+
+<!-- Wrapper for Flex Layout -->
+<div class="flex-wrapper" style="display: flex; gap: 30px; justify-content: center; align-items: flex-start; padding: 20px;">
+
+  <!-- Calculator Container -->
+  <div class="container">
+    <div class="calculator-layout">
+
+      <div class="calculator">
+        <h2>Impulse & Momentum Calculator</h2>
+
+        <div class="step" id="inputContainer"></div>
+
+        <div class="display" id="lastCalc" style="display: none">
+          <h1>Last Saved Input:</h1>
+          <pre id="lastCalcData"></pre>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<!-- Wrapper for logs + explanation -->
+<div class="side-panel">
+  <!-- Result/Message Side Panel -->
+  <div id="resultsContainer" class="results-container">
+    <h3>Calculation Logs</h3>
+    <div id="errorMessage" class="message-box error" style="display:none; position:absolute; top:40px; left:50%; transform: translateX(-50%); z-index: 10; pointer-events:none;"></div>
+    <div id="resultMessages" class="result-messages"></div>
+  </div>
+
+  <!-- Explanation below -->
+  <div class="explanation-text">
+    <p><strong>Momentum (p)</strong> = mass × velocity</p>
+    <p><strong>Impulse (J)</strong> = force × time = change in momentum</p>
+    <p> <br>
+      Impulse and momentum are directly related, especially in situations like
+      collisions, sports, and vehicle safety, where understanding motion and
+      impact is essential.
+    </p>
+  </div>
+</div>
+
+
+
+
+  <script src="Calphy.js"></script>
+
+</body>
+</html>

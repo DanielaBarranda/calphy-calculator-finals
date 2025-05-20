@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Impulse & Momentum Calculator</title>
-  <link rel="stylesheet" href="landingpage.css" />
-  <link rel="stylesheet" href="nav-bar/nav.css">
+  <link rel="stylesheet" href="../Calculator/landingpage.css" />
+  <link rel="stylesheet" href="../nav-bar/nav.css">
 </head>
 <body>
 
@@ -13,29 +13,21 @@
   <div id="navbar-placeholder"></div>
 
 <!-- Landing Page -->
-<<<<<<< HEAD:landingpage.html
 <header class="frontpage">
   <div class="container">
     <div class="text-content">
-      <h1>Impulse & Momentum <br>Calculator</h1>
+      <h1>Impulse & Momentum <br>Online Calculator</h1>
       <p>Quickly calculate impulse and momentum with ease. <br>Enter your values and get accurate results instantly!</p>
-      <a href="#" class="cta-button">Get Started</a>
-=======
-  <header class="frontpage">
-    <div class="container">
-      <h1>Impulse & Momentum Calculator</h1>
-      <p>Quickly calculate impulse and momentum with ease. Enter your values and get accurate results instantly!</p>
-      <a href="/Calculator/Calc.html" class="cta-button">Get Started</a>
->>>>>>> eb1dbc9137209c253abee84de671f4f3d8ac7014:LandingP/landingpage.html
+      <a href="../Calphy.html" class="cta-button">Get Started</a>
     </div>
-    <img src="images/landingpage-1.png" alt="Calculator illustration" class="header-image" />
+    <img src="../images/landingpage-1.png" alt="Calculator illustration" class="header-image" />
   </div>
 </header>
 
 
 <!-- For Navigation Bar -->
 <script>
-    fetch("./nav-bar/nav.html") 
+    fetch("../nav-bar/nav.html") 
       .then(response => response.text())
       .then(data => {
         document.getElementById("navbar-placeholder").innerHTML = data;

@@ -1,3 +1,13 @@
+/* Navigation */
+fetch("../nav-bar/nav.html") 
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      })
+      .catch(error => {
+        console.error("Failed to load navbar:", error);
+      });
+
 // para syang html file pero nasa js(visbility ng input fields)
 const inputFields = [
   { id: "force", label: "Force (N)" },
