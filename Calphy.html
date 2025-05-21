@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Calphy.css" />
     <link rel="stylesheet" href="./nav-bar/nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     
 <!-- Navigation Bar-->
   <div id="navbar-placeholder"></div>
+<!-- Navigation Bar-->
 
+<!-- Introduction Part -->
 <div class="first-part">
   <img src="./images/ImpulseandMomentun.png" alt="Impulse and Momentum" class="Title" />
 
@@ -19,7 +22,7 @@
     <img src="./images/Element.png" alt="Element" class="element-img" />
     
     <p>
-      <b>Impulse</b> and <b>momentum</b> are key physics concepts related to motion. <br> 
+      <b>Impulse</b> and <b>momentum</b> are key physics concepts related to motion. <br> <br>
       <b>Momentum</b> is the product of an object's mass and velocity—more mass or speed means more momentum.
     </p>
     <p> 
@@ -28,8 +31,9 @@
     </p>
   </div>
 </div>
+<!-- Introduction Part -->
 
-<!-- Instructions -->
+<!-- Instructions Part -->
   <div class="instruction-section">
     <header>
     <h2>Instruction</h2>
@@ -40,33 +44,12 @@
     </p>
     </header>
   </div>
+<!-- Instructions Part -->
 
-<!-- Calculator 
-  <div class="container">
-  <div class="calculator-layout">
-
-    <div class="calculator">
-      <h2>Impulse & Momentum Calculator</h2>
-    <div class="step" id="inputContainer"></div>
-
-      <div class="display" id="lastCalc" style="display: none">
-        <h1>Last Saved Input:</h1>
-        <pre id="lastCalcData"></pre>
-      </div>
-
-    <div class="display" id="results" style="display: none;">
-        <p id="impulseOutput"></p>
-        <p id="initialMomentumOutput"></p>
-        <p id="finalMomentumOutput"></p>
-        <button onclick="restart()">Start Over</button>
-      </div>
-    </div>
-  -->
-
+<!-- Calculator Container -->
 <!-- Wrapper for Flex Layout -->
 <div class="flex-wrapper" style="display: flex; gap: 30px; justify-content: center; align-items: flex-start; padding: 20px;">
 
-  <!-- Calculator Container -->
   <div class="container">
     <div class="calculator-layout">
 
@@ -83,13 +66,14 @@
       </div>
     </div>
   </div>
+<!-- Calculator Container -->
 
-<!-- Wrapper for logs + explanation -->
+<!-- Calculation Log and Explanation -->
 <div class="side-panel">
   <!-- Result/Message Side Panel -->
   <div id="resultsContainer" class="results-container">
     <h3>Calculation Logs</h3>
-    <div id="errorMessage" class="message-box error" style="display:none; position:absolute; top:40px; left:50%; transform: translateX(-50%); z-index: 10; pointer-events:none;"></div>
+    <div id="errorMessage" class="message-box error"></div>
     <div id="resultMessages" class="result-messages"></div>
   </div>
 
@@ -104,9 +88,7 @@
     </p>
   </div>
 </div>
-
-
-
+<!-- Calculator Container -->
 
   <script src="Calphy.js"></script>
 

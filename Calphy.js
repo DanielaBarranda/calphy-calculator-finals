@@ -69,25 +69,39 @@ function calculateImpulseAndMomentum() {
   const initialVelocity = parseFloat(document.getElementById("initialVelocity").value);
   const finalVelocity = parseFloat(document.getElementById("finalVelocity").value);
 
-/* Check if any input values are not valid numbers (NaN).
-   If so, this triggers the pop-up alert we see in the browser. */
   if ([force, time, mass, initialVelocity, finalVelocity].some(isNaN)) {
-    displayMessage("Please fill in all fields with valid numbers.");
+    displayMessage("Please fill in all fields with valid numbers.", 'error');
+    document.getElementById('clearBtn').style.display = 'inline-block';
     return;
   }
 
-// Setting up the conditions 
+/* Formulas to get the results */
   const impulse = force * time;
   const initialMomentum = mass * initialVelocity;
   const finalMomentum = mass * finalVelocity;
+  const changeInMomentum = finalMomentum - initialMomentum;
 
-  const resultData = { force, time, mass, initialVelocity, finalVelocity };
-  localStorage.setItem("impulseCalcData", JSON.stringify(resultData));
-
-displayMessage(`Impulse: ${impulse.toFixed(2)} N·s`);
-displayMessage(`Initial Momentum: ${initialMomentum.toFixed(2)} kg·m/s`);
-displayMessage(`Final Momentum: ${finalMomentum.toFixed(2)} kg·m/s`);
+  const resultHtml = `
+    <ul style="text-align: left; padding-left: 20px;">
+      <li><strong>Impulse:</strong> ${impulse.toFixed(2)} N·s</li>
+      <li><strong>Initial Momentum:</strong> ${initialMomentum.toFixed(2)} kg·m/s</li>
+      <li><strong>Final Momentum:</strong> ${finalMomentum.toFixed(2)} kg·m/s</li>
+      <li><strong>Change in Momentum:</strong> ${changeInMomentum.toFixed(2)} kg·m/s</li>
+    </ul>
+  `;
+    // Save input data to localStorage
+  const savedData = {
+    force,
+    time,
+    mass,
+    initialVelocity,
+    finalVelocity
+  };
+  localStorage.setItem("impulseCalcData", JSON.stringify(savedData));
+  displayMessage(resultHtml, 'info', true);  // Pass `true` to indicate HTML content
+  document.getElementById('clearBtn').style.display = 'inline-block';
 }
+
 
 /* This function resets the form to its initial state.
 It makes the input fields container visible again,
@@ -108,44 +122,72 @@ function toggleLastCalculation() {
   const lastCalcDiv = document.getElementById("lastCalc");
   const button = document.getElementById("toggleLastBtn");
 
-  if (lastCalcDiv.style.display === "none") {
+  if (!lastCalcDiv || !button) {
+    displayMessage("Missing display section or button.", 'error');
+    return;
+  }
+
+  if (lastCalcDiv.style.display === "none" || lastCalcDiv.style.display === "") {
     const saved = localStorage.getItem("impulseCalcData");
     if (!saved) {
-      displayMessage("No saved data found.");
+      displayMessage("No saved data found.", 'error');
       return;
     }
 
-    const parsed = JSON.parse(saved);
-    let output = "";
-    for (const key in parsed) {
-      output += `${key}: ${parsed[key]}\n`;
-    }
+    try {
+      const parsed = JSON.parse(saved);
+      let output = "";
+      for (const key in parsed) {
+        output += `${key}: ${parsed[key]}\n`;
+      }
 
-    document.getElementById("lastCalcData").textContent = output;
-    lastCalcDiv.style.display = "block";
-    button.textContent = "Hide Last Calculation";
+      document.getElementById("lastCalcData").textContent = output;
+      lastCalcDiv.style.display = "block";
+      button.textContent = "Hide Last Calculation";
+    } catch (error) {
+      displayMessage("Error loading saved calculation.", 'error');
+    }
   } else {
     lastCalcDiv.style.display = "none";
     button.textContent = "View Last Calculation";
   }
 }
 
-function displayMessage(message, type = 'info') {
+// After creating and appending the Calculate button
+container.appendChild(calcBtn);
+
+// After creating and appending the View Last Calculation button
+container.appendChild(toggleBtn);
+
+//Clear button code.
+const clearBtn = document.createElement("button");
+clearBtn.textContent = "Clear Results";
+clearBtn.id = "clearBtn";
+clearBtn.style.display = "none"; // hidden initially
+clearBtn.onclick = () => {
+  document.getElementById('resultMessages').innerHTML = '';
+  clearBtn.style.display = "none";
+};
+container.appendChild(clearBtn);
+
+// Displaying the messages
+function displayMessage(message, type = 'info', isHtml = false) {
   const container = document.getElementById('resultMessages');
   const msgBox = document.createElement('div');
-  msgBox.style.padding = '10px';
-  msgBox.style.marginBottom = '10px';
-  msgBox.style.borderRadius = '8px';
 
-  if (type === 'error') {
-    msgBox.style.backgroundColor = '#f8d7da';
-    msgBox.style.color = '#721c24';
+  // Add CSS class based on type (info or error)
+  msgBox.classList.add(type === 'error' ? 'error-message' : 'info-message');
+
+  if (isHtml) {
+    msgBox.innerHTML = message;
   } else {
-    msgBox.style.backgroundColor = '#d1ecf1';
-    msgBox.style.color = '#0c5460';
+    msgBox.textContent = message;
   }
 
-  msgBox.textContent = message;
   container.appendChild(msgBox);
 }
+
+
+
+
 
