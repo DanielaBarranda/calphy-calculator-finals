@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./Calphy.css" />
     <link rel="stylesheet" href="./nav-bar/nav.css">
     <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
-    <title>IMC</title>
+    <title>NewtonsIQ</title>
 </head>
 <body>
     
@@ -46,51 +46,51 @@
   </div>
 <!-- Instructions Part -->
 
-<!-- Calculator Container -->
-<!-- Wrapper for Flex Layout -->
-<div class="flex-wrapper" style="display: flex; gap: 30px; justify-content: center; align-items: flex-start; padding: 20px;">
+<!-- DIFFERENT BACKGROUND START -->
+<div class="calculation-section">
+  <!-- Calculator Container -->
+  <div class="flex-wrapper" style="display: flex; gap: 30px; justify-content: center; align-items: flex-start; padding: 20px;">
 
-  <div class="container">
-    <div class="calculator-layout">
+    <div class="container">
+      <div class="calculator-layout">
 
-      <div class="calculator">
-        <h2>Impulse & Momentum Calculator</h2>
+        <div class="calculator">
+          <h2>Impulse & Momentum Calculator</h2>
 
-        <div class="step" id="inputContainer"></div>
+          <div class="step" id="inputContainer"></div>
 
-        <div class="display" id="lastCalc" style="display: none">
-          <h1>Last Saved Input:</h1>
-          <pre id="lastCalcData"></pre>
+          <div class="display" id="lastCalc" style="display: none">
+            <h1>Last Saved Input:</h1>
+            <pre id="lastCalcData"></pre>
+          </div>
+
         </div>
+      </div>
+    </div>
 
+    <!-- Calculation Log and Explanation -->
+    <div class="side-panel">
+      <div id="resultsContainer" class="results-container">
+        <h3>Calculation Logs</h3>
+        <div id="errorMessage" class="message-box error"></div>
+        <div id="resultMessages" class="result-messages"></div>
+      </div>
+
+      <div class="explanation-box">
+        <div class="explanation-label">FORMULA</div>
+        <div class="explanation-text">
+          <p><strong>Momentum (p)</strong> = mass × velocity</p>
+          <p><strong>Impulse (J)</strong> = force × time = change in momentum</p>
+          <p><br>
+            Impulse and momentum are directly related, especially in situations like
+            collisions, sports, and vehicle safety, where understanding motion and
+            impact is essential.
+          </p>
+        </div>
       </div>
     </div>
   </div>
-<!-- Calculator Container -->
-
-<!-- Calculation Log and Explanation -->
-<div class="side-panel">
-  <!-- Result/Message Side Panel -->
-  <div id="resultsContainer" class="results-container">
-    <h3>Calculation Logs</h3>
-    <div id="errorMessage" class="message-box error"></div>
-    <div id="resultMessages" class="result-messages"></div>
-  </div>
-
-  <!-- Explanation below -->
-  <div class="explanation-box">
-  <div class="explanation-label">See Formula...</div>
-  <div class="explanation-text">
-    <p><strong>Momentum (p)</strong> = mass × velocity</p>
-    <p><strong>Impulse (J)</strong> = force × time = change in momentum</p>
-    <p><br>
-      Impulse and momentum are directly related, especially in situations like
-      collisions, sports, and vehicle safety, where understanding motion and
-      impact is essential.
-    </p>
-  </div>
 </div>
-<!-- Calculator Container -->
 
   <script src="Calphy.js"></script>
 

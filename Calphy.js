@@ -1,4 +1,4 @@
-/* This JavaScript code is used to dynamically load a navigation bar
+/* This snipped code is used to dynamically load a navigation bar
  (navbar) into a webpage without copying and pasting the same HTML code on every page.*/
 fetch("../nav-bar/nav.html") 
       .then(response => response.text())
@@ -11,7 +11,7 @@ fetch("../nav-bar/nav.html")
 
 /*This array holds the configuration for each input field in the form.
 Each object contains:
-'id': used to uniquely identify the input element (similar to HTML id).
+'id': used to uniquely identify the input element.
 'label': the text label that will be displayed beside the input field. */
 const inputFields = [
   { id: "force", label: "Force (N)" }, // Input for Force in Newtons
@@ -45,7 +45,7 @@ It sets the button text to "Calculate" and assigns the function
 `calculateImpulseAndMomentum` to run when the button is clicked. */
 const calcBtn = document.createElement("button"); //Button element
 calcBtn.textContent = "Calculate"; // Setting the button text
-calcBtn.onclick = calculateImpulseAndMomentum; // handler for calculation
+calcBtn.onclick = calculateImpulseAndMomentum; // Meaning, when we click the button, it will calculate all the set formulas in the function called calcuImpulseAnd Momentum
 container.appendChild(calcBtn); //Adding the button to the container
 
 /* It sets the button text to "View Last Calculation". This code creates 
@@ -69,36 +69,65 @@ function calculateImpulseAndMomentum() {
   const initialVelocity = parseFloat(document.getElementById("initialVelocity").value);
   const finalVelocity = parseFloat(document.getElementById("finalVelocity").value);
 
-  if ([force, time, mass, initialVelocity, finalVelocity].some(isNaN)) {
-    displayMessage("Please fill in all fields with valid numbers.", 'error');
-    document.getElementById('clearBtn').style.display = 'inline-block';
-    return;
+  let hasError = false;
+  let resultHtml = `
+    <ul style="text-align: left; padding-left: 20px; color: black;">
+  `;
+
+  // Check and calculate Impulse
+  if (!isNaN(force) && !isNaN(time)) {
+  //IMPULSE
+    const impulse = force * time;
+    resultHtml += `<li><strong>Impulse:</strong> ${impulse.toFixed(2)} N·s</li>`;
+
+  //IMPULSE ALTERVATIVE FORMULA
+  } else if (!isNaN(mass) && !isNaN(initialVelocity) && !isNaN(finalVelocity)) {
+    const impulseAlt = mass * (finalVelocity - initialVelocity);
+    resultHtml += `<li><strong>Impulse (alt):</strong> ${impulseAlt.toFixed(2)} N·s</li>`;
+  
+  //IF INVALID YUNG ININPUT NI USER
+  } else {
+    hasError = true;
+    resultHtml += `<li style="color: red;">Impulse: Missing required inputs</li>`;
   }
 
-/* Formulas to get the results */
-  const impulse = force * time;
-  const initialMomentum = mass * initialVelocity;
-  const finalMomentum = mass * finalVelocity;
-  const changeInMomentum = finalMomentum - initialMomentum;
+  // Check and calculate Momentum
+  if (!isNaN(mass) && !isNaN(finalVelocity)) {
+    const finalMomentum = mass * finalVelocity;
+    resultHtml += `<li><strong>Final Momentum:</strong> ${finalMomentum.toFixed(2)} kg·m/s</li>`;
+  } else {
+    hasError = true;
+    resultHtml += `<li style="color: red;">Final Momentum: Missing required inputs</li>`;
+  }
 
-  const resultHtml = `
-    <ul style="text-align: left; padding-left: 20px;">
-      <li><strong>Impulse:</strong> ${impulse.toFixed(2)} N·s</li>
-      <li><strong>Initial Momentum:</strong> ${initialMomentum.toFixed(2)} kg·m/s</li>
-      <li><strong>Final Momentum:</strong> ${finalMomentum.toFixed(2)} kg·m/s</li>
-      <li><strong>Change in Momentum:</strong> ${changeInMomentum.toFixed(2)} kg·m/s</li>
-    </ul>
-  `;
-    // Save input data to localStorage
-  const savedData = {
-    force,
-    time,
-    mass,
-    initialVelocity,
-    finalVelocity
-  };
+  // Check and calculate Initial Momentum
+  if (!isNaN(mass) && !isNaN(initialVelocity)) {
+    const initialMomentum = mass * initialVelocity;
+    resultHtml += `<li><strong>Initial Momentum:</strong> ${initialMomentum.toFixed(2)} kg·m/s</li>`;
+  }
+
+  // Change in Momentum (if both are available)
+  if (!isNaN(mass) && !isNaN(initialVelocity) && !isNaN(finalVelocity)) {
+    const changeInMomentum = mass * (finalVelocity - initialVelocity);
+    resultHtml += `<li><strong>Change in Momentum:</strong> ${changeInMomentum.toFixed(2)} kg·m/s</li>`;
+  }
+
+  resultHtml += `</ul>`;
+
+  if (hasError) {
+    displayMessage("Some values are missing. Calculated only available results.", 'error');
+  }
+
+  // Save only available values
+  const savedData = {};
+  if (!isNaN(force)) savedData.force = force;
+  if (!isNaN(time)) savedData.time = time;
+  if (!isNaN(mass)) savedData.mass = mass;
+  if (!isNaN(initialVelocity)) savedData.initialVelocity = initialVelocity;
+  if (!isNaN(finalVelocity)) savedData.finalVelocity = finalVelocity;
+
   localStorage.setItem("impulseCalcData", JSON.stringify(savedData));
-  displayMessage(resultHtml, 'info', true);  // Pass `true` to indicate HTML content
+  displayMessage(resultHtml, 'info', true);
   document.getElementById('clearBtn').style.display = 'inline-block';
 }
 
