@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impulse and Momentum Calculator</title>
-    <link rel="stylesheet" href="about-styles.css">
+    <link rel="stylesheet" href="../styles/about-styles.css" />
+    <link rel="stylesheet" href="../nav-bar/nav.css">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
 
 </head>
 <body>
+
+    <!-- Navigation Bar-->
+  <div id="navbar-placeholder"></div>
+    <!-- Navigation Bar-->
+
     <div class="imc-background">
         <!-- About Container Image with Text Overlay -->
         <div class="about-container">
-            <img src="images/about-container.png" alt="About Container">
+            <img src="/images/about-container.png" alt="About Container">
             <div class="about-text">
                 <p>
                     Welcome to the Impulse and Momentum Calculator — a simple and powerful tool designed to help you solve physics problems with ease. Whether you're calculating force, time, mass, velocity, or momentum, our calculator makes it quick and accurate.
@@ -22,7 +29,7 @@
 
         <!-- Sticky Note 1 -->
         <div class="sticky-note sticky-1">
-            <img src="images/stickynote.png" alt="Sticky Note">
+            <img src="/images/stickynote.png" alt="Sticky Note">
             <div class="note-text">
                 <p>
                     Built for students, teachers, and physics enthusiasts, this site also offers brief explanations to help you understand the concepts behind the numbers.
@@ -32,7 +39,7 @@
 
         <!-- Sticky Note 2 -->
         <div class="sticky-note sticky-2">
-            <img src="images/stickynote.png" alt="Sticky Note">
+            <img src="/images/stickynote.png" alt="Sticky Note">
             <div class="note-text">
                 <p>
                     Perfect for homework, experiments, or just brushing up on your physics knowledge!
@@ -40,5 +47,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+    fetch("../nav-bar/nav.html") 
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      })
+      .catch(error => {
+        console.error("Failed to load navbar:", error);
+      });
+  </script>
+
 </body>
 </html>

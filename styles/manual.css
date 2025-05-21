@@ -6,11 +6,11 @@ body {
 
 /* Background is now handled separately */
 .background-section {
-  background-image: url('manual_images/howbg.png');
+  background-image: url('/images/howbg.png');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-  padding: 40px;
+  padding: 30px;
   color: white;
   display: flex;
   align-items: flex-start;
@@ -23,8 +23,8 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 1000px;
-  right: -400px;
-  margin-top: 150px;
+  right: -230px;
+  margin-top: 130px;
 }
 
 /* "How to Use?" Header image */

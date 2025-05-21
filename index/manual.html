@@ -4,12 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How to Use - Impulse & Momentum Calculator</title>
-  <link rel="stylesheet" href="manual.css" />
+  <link rel="stylesheet" href="/styles/manual.css" />
+    <link rel="stylesheet" href="../nav-bar/nav.css">
 </head>
 <body>
+
+<!-- Navigation Bar-->
+  <div id="navbar-placeholder"></div>
+<!-- Navigation Bar-->
+
   <section class="background-section">
     <div class="how-to-use-section">
-    <img src="manual_images/how.png" alt="How to Use?" class="how-header" />
+    <img src="/images/how.png" alt="How to Use?" class="how-header" />
       <div class="how-content">
         <ol>
           <li><strong>Enter the Required Values:</strong>
@@ -48,5 +54,17 @@
       </div>
     </div>
   </section>
+
+<script>
+    fetch("../nav-bar/nav.html") 
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      })
+      .catch(error => {
+        console.error("Failed to load navbar:", error);
+      });
+  </script>
+
 </body>
 </html>

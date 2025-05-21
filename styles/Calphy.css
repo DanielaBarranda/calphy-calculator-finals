@@ -1,6 +1,6 @@
 body {
     /* background: linear-gradient(to right, #3b82f6, #06b6d4); */
-    background-image: url("images/Background.png");
+    background-image: url("/images/Background.png");
     background-repeat: no-repeat;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -116,7 +116,7 @@ header {
 
 /* Calculator Part */
 .calculation-section {
-  background-image: url("images/Calcu-BG\ \(1\).png");
+  background-image: url("/images/calcsection.png");
   padding: 30px 0;
   width: 100vw;
   overflow-x:hidden;
@@ -130,7 +130,7 @@ header {
 }
 
 .calculator {
-  background-image: url("images/bgcalcu.png");
+  background-color: #18375d;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
