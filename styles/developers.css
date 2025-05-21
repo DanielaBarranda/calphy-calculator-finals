@@ -1,104 +1,136 @@
-    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-image: url("/images/Background.png");
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-.element-img {
-  position: absolute;     /* Corrected this */
-  top: -60px;              /* Distance from the top */
-  left: 300px;            /* Horizontal position */
-  width: 60%;
-  height: auto;
-}
-
-    /* Your existing CSS goes here */
-    body {
-      background-color: #f0f0f0;
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .section-title {
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-image: url("/images/Background.png");
+      color: #ffffff;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .main-section {
+      padding: 60px 20px;
       text-align: center;
-      font-size: 28px;
-      margin-top: 40px;
-      font-weight: bold;
+      position: relative;
     }
 
-    .card-container {
+    .main-section img.heading-image {
+      max-width: 100%;
+      width: 800px;
+      height:auto;
+      margin-top: -100px;
+      background-image: red;
+    }
+
+    .dev-cards {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-evenly;
-      row-gap: 50px;
-      padding: 50px 100px;
+      justify-content: center;
+      gap: 25px;
+      align-items: flex-start;
+      margin-top: -70px;
     }
 
-    .card {
-      width: 250px;
-      height: 270px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
+    .dev-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #58c6ff44;
+      border-radius: 12px;
+      width: 200px;
+      height: 180px;
+      padding: 10px;
+      box-shadow: 0 0 12px #58c6ff22;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(3px);
       cursor: pointer;
     }
 
-    .card:hover {
-      transform: scale(1.05);
+    .dev-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #58c6ffcc;
     }
 
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      color: white;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      display: flex;
-      flex-direction: column;
+    .dev-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      filter: grayscale(30%) contrast(1.1);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 20, 40, 0.95);
       justify-content: center;
       align-items: center;
+    }
+
+    .modal-content {
+      background: #102540;
+      color: #fff;
       padding: 20px;
+      border-radius: 12px;
       text-align: center;
+      width: 90%;
+      max-width: 300px;
+      border: 1px solid #58c6ff88;
+      box-shadow: 0 0 20px #58c6ffaa;
+      position: relative;
     }
 
-    .card:hover .overlay {
-      opacity: 1;
+    .modal-content h3 {
+      margin-bottom: 10px;
+      color: #58c6ff;
     }
 
-    .overlay h3 {
-      margin-bottom: 15px;
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: 1px;
+    .modal-content .icon-links {
+      margin-top: 10px;
     }
 
-    .socials {
-      display: flex;
-      gap: 20px;
-    }
-
-    .socials a {
-      color: white;
-      font-size: 24px;
+    .modal-content a {
+      display: inline-block;
+      margin: 5px 10px;
+      color: #58c6ff;
       text-decoration: none;
-      transition: color 0.3s ease;
     }
 
-    .socials a:hover {
-      color: #38bdf8;
+    .modal-content .icon {
+      width: 30px;
+      height: 30px;
     }
 
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      color: #58c6ff;
+      cursor: pointer;
+    }
 
+    @media (max-width: 768px) {
+      .dev-cards {
+        flex-direction: column;
+        align-items: center;
+      }
 
-   
+      .dev-card {
+        width: 150px;
+        height: 150px;
+      }
+    }
