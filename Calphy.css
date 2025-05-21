@@ -282,18 +282,54 @@ button:hover {
   color: #00d9ff;
 }
 
-.explanation-text {
+.explanation-box {
   position: relative;
-  margin-top: 70px;
+  margin-top: 40px;
+  width: 400px;
+  height: auto;
   background-color: #e9f5ff;
   border-left: 45px solid #3dd2ff;
-  padding: 15px;
   border-radius: 8px;
+  padding: 20px;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.explanation-label {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #3dd2ff;
+  font-weight: bold;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.explanation-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  color: #333;
   font-family: Arial, sans-serif;
   font-size: 14px;
-  color: #333;
   line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
+
+.explanation-box:hover .explanation-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.explanation-box:hover .explanation-label {
+  opacity: 0;
+}
+
 
 #errorMessage {
   display: none;
