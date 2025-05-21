@@ -2,309 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/developers.css" />
+   <link rel="stylesheet" href="./nav-bar/nav.css">
   <title>Meet the Developers</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Share Tech Mono', monospace;
-      background: #0a1a2f;
-      color: #ffffff;
-      position: relative;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    .background-overlay {
-      background: url('background-math.png') center/cover no-repeat;
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.07;
-      z-index: -1;
-    }
-
-    .main-section {
-      padding: 60px 20px;
-      text-align: center;
-      position: relative;
-    }
-
-    .main-section img.heading-image {
-      max-width: 300px;
-      margin-bottom: 40px;
-    }
-
-    .dev-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-    }
-
-    .dev-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #58c6ff44;
-      border-radius: 12px;
-      width: 180px;
-      height: 180px;
-      padding: 10px;
-      box-shadow: 0 0 12px #58c6ff22;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      backdrop-filter: blur(3px);
-      cursor: pointer;
-    }
-
-    .dev-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 20px #58c6ffcc;
-    }
-
-    .dev-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      filter: grayscale(30%) contrast(1.1);
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(10, 20, 40, 0.95);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background: #102540;
-      color: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      width: 90%;
-      max-width: 300px;
-      border: 1px solid #58c6ff88;
-      box-shadow: 0 0 20px #58c6ffaa;
-      position: relative;
-    }
-
-    .modal-content h3 {
-      margin-bottom: 10px;
-      color: #58c6ff;
-    }
-
-    .modal-content .icon-links {
-      margin-top: 10px;
-    }
-
-    .modal-content a {
-      display: inline-block;
-      margin: 5px 10px;
-      color: #58c6ff;
-      text-decoration: none;
-    }
-
-    .modal-content .icon {
-      width: 30px;
-      height: 30px;
-    }
-
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 22px;
-      color: #58c6ff;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .dev-cards {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .dev-card {
-        width: 150px;
-        height: 150px;
-      }
-    }
-  </style>
 </head>
 <body>
 
-  <div class="background-overlay"></div>
+  <!-- Navigation Bar-->
+    <div id="navbar-placeholder"></div>
+  <!-- Navigation Bar-->
 
-  <section class="main-section">
-    <!-- Replaced text with image -->
-    <img src="meet-the-developers.png" alt="Meet the Developers" class="heading-image" />
+  <div class="dev">
+    <img src="/images/meet-the-developers.png" alt="Element" class="element-img" />
+  </div>
 
-    <div class="dev-cards">
-      <!-- Dev cards (unchanged) -->
-      <div class="dev-card" onclick="openModal('lexter-modal')">
-        <img src="Lex12.jpg" alt="Lexter Logo" />
-      </div>
-      <div class="dev-card" onclick="openModal('hans-modal')">
-        <img src="Daniela1.jpg" alt="Daniela Logo" />
-      </div>
-      <div class="dev-card" onclick="openModal('alex-modal')">
-        <img src="Hart.jpg" alt="Hart Logo" />
-      </div>
-      <div class="dev-card" onclick="openModal('lio-modal')">
-        <img src="lio.jpg" alt="Lio Logo" />
-      </div>
-      <div class="dev-card" onclick="openModal('Sam-modal')">
-        <img src="Sam.jpg" alt="Sam Logo" /> 
-      </div>
-      <div class="dev-card" onclick="openModal('Carl-modal')">
-        <img src="Carl.jpg" alt="Carl Logo" /> 
-      </div>
-    </div>
-  </section>
-
-  <!-- Modals (unchanged) -->
-   
-  <!-- [same modal HTML as before] -->
-
-  <div class="modal" id="lexter-modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('lexter-modal')">&times;</span>
-      <h3>Lexter</h3>
-      <div class="icon-links">
-        <a href="https://github.com/lexterlimbaga" target="_blank" title="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon" />
-        </a>
-        <a href="https://www.facebook.com/lexter.limbaga.7" target="_blank" title="Facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="icon" />
-        </a>
+  <!-- Developer 1 -->
+  <div class="card" style="background-image: url('')">
+    <div class="overlay">
+      <h3>John Lio Apiado</h3>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </div>
 
-  <div class="modal" id="hans-modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('hans-modal')">&times;</span>
-      <h3>Daniela</h3>
-      <div class="icon-links">
-        <a href="https://github.com/DanielaBarranda" target="_blank" title="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon" />
-        </a>
-        <a href="https://www.facebook.com/share/1Fz7P6BM4r/?mibextid=wwXIfr" target="_blank" title="Facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="icon" />
-        </a>
+  <!-- Developer 2 -->
+  <div class="card" style="background-image: url('/images/Daniela1.jpg')">
+    <div class="overlay">
+      <h3>Daniela Nicole Barranda</h3>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </div>
 
-  <div class="modal" id="alex-modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('alex-modal')">&times;</span>
-      <h3>Hart</h3>
-      <div class="icon-links">
-        <a href="https://github.com/heartdenise" target="_blank" title="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon" />
-        </a>
-        <a href="https://www.facebook.com/share/12Jq4UdSmqT/?mibextid=wwXIfr" target="_blank" title="Facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="icon" />
-        </a>
+  <!-- Developer 3 -->
+  <div class="card" style="background-image: url('your-image-url-3.jpg')">
+    <div class="overlay">
+      <h3>Dev 3</h3>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </div>
 
-  <div class="modal" id="lio-modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('lio-modal')">&times;</span>
-      <h3>Lio</h3>
-      <div class="icon-links">
-        <a href="https://github.com/Liooouu" target="_blank" title="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon" />
-        </a>
-        <a href="https://www.facebook.com/Smgyup/" target="_blank" title="Facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="icon" />
-        </a>
+    <!-- Developer 4 -->
+  <div class="card" style="background-image: url('your-image-url-3.jpg')">
+    <div class="overlay">
+      <h3>Dev 3</h3>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </div>
 
-  <div class="modal" id="Sam-modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('Sam-modal')">&times;</span>
-      <h3>Sam</h3>
-      <div class="icon-links">
-        <a href="https://github.com/Samgyupp" target="_blank" title="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon" />
-        </a>
-        <a href="https://www.facebook.com/Smgyup/" target="_blank" title="Facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="icon" />
-        </a>
+    <!-- Developer 5 -->
+  <div class="card" style="background-image: url('your-image-url-3.jpg')">
+    <div class="overlay">
+      <h3>Dev 3</h3>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </div>
 
-  <div class="modal" id="Carl-modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('Carl-modal')">&times;</span>
-      <h3>Carl</h3>
-      <div class="icon-links">
-        <a href="https://github.com/Cil816" target="_blank" title="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon" />
-        </a>
-        <a href="https://www.facebook.com/danielcarl.valino?" target="_blank" title="Facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="icon" />
-        </a>
+    <!-- Developer 6 -->
+  <div class="card" style="background-image: url('your-image-url-3.jpg')">
+    <div class="overlay">
+      <h3>Dev 3</h3>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </div>
 
   <script>
-    function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-    }
-
-    window.onclick = function(e) {
-      const modals = document.querySelectorAll('.modal');
-      modals.forEach(modal => {
-        if (e.target === modal) modal.style.display = "none";
+    fetch("../nav-bar/nav.html") 
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      })
+      .catch(error => {
+        console.error("Failed to load navbar:", error);
       });
-    };
   </script>
-
-<section class="main-section">
-  <img src="meet-the-developers.png" alt="Meet the Developers" class="heading-image" />
-  
-  <p style="max-width: 600px; margin: 0 auto 40px auto; font-size: 20px; line-height: 1.6; color: #ccc;">
-  We are a group of BSIT students from FAITH Colleges who collaborated on this project as part of our Calculus-Based Physics course. This website is the result of our combined efforts to apply programming skills to solve real-world physics problems. From designing the user interface to implementing the core calculator functions, each of us contributed to building a tool that’s not only functional but also educational. Get to know the team behind the code — future developers passionate about learning, technology, and making physics easier to understand.
-</p>
-
-  
-  <div class="dev-cards">
-    <!-- existing dev cards here -->
-  </div>
-</section>
-
-
-
 
 </body>
 </html>
