@@ -1,0 +1,132 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Mono', monospace;
+
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+.imc-background {
+    background: url('images/about-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* About container */
+.about-container {
+    position: absolute;
+    margin-top: -20px;
+    left: 10%;
+    width: 380px;
+    top: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.about-container:hover {
+    transform: scale(1.03);
+}
+
+
+.about-container img {
+    width: 550px;
+    height: auto;
+    display: block;
+  
+    
+}
+
+.about-text {
+    position: absolute;
+    top: 300px;
+    left: 80px;
+    width: 94%;
+    font-size: 22px;
+    color: white;
+    line-height: 1.5;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Sticky notes */
+.sticky-note {
+    position: absolute;
+    width: 300px;
+}
+
+.sticky-note img {
+    width: 420px;
+    height: auto;
+    display: block;
+}
+
+/* Sticky note text */
+.note-text {
+    position: absolute;
+    top: 130px;
+    left: 80px;
+    width: 80%;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #000;
+    font-weight: bold;
+}
+
+
+/* Positions */
+.sticky-1 {
+    top: 10%;
+    right:560px;
+    transform: rotate(-10deg);
+}
+
+.sticky-2 {
+    top: 250px;
+     right:280px;
+     transform: rotate(15deg);
+}
+.sticky-note {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* On hover: only scale */
+.sticky-note:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 768px) {
+    .about-container {
+        width: 90%;
+        top: 5%;
+        left: 5%;
+    }
+
+    .about-text {
+        font-size: 0.8rem;
+    }
+
+    .sticky-note {
+        width: 80%;
+        left: 10%;
+    }
+
+    .sticky-1 {
+        top: 60%;
+    }
+
+    .sticky-2 {
+        top: 80%;
+    }
+}
