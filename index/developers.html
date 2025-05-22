@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="../styles/developers.css" />
   <link rel="stylesheet" href="../nav-bar/nav.css">
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
   <title>NewtonsIQ: The Developers</title>
 
 </head>
@@ -17,52 +18,27 @@
     <!-- Replaced text with image -->
     <img src="/images/meet-the-developers.png" alt="Meet the Developers" class="heading-image" />
 
-    <div class="dev-cards">
-      <!-- Dev cards (unchanged) -->
-      <div class="dev-card" onclick="openModal('lio-modal')">
-        <img src="/images/lio.jpg" alt="Lexter Logo" />
-      </div>
-      <div class="dev-card" onclick="openModal('daniela-modal')">
-        <img src="/images/Daniela1.jpg" alt="Daniela Logo" />
-      </div>
-      <div class="dev-card" onclick="openModal('hart-modal')">
-        <img src="/images/Hart.jpg" alt="Hart Logo" />
-      </div>
-      <div class="dev-card" onclick="openModal('lexter-modal')">
-        <img src="/images/Lex12.jpg" alt="Lio Logo" />
-      </div>
-      <div class="dev-card" onclick="openModal('Sam-modal')">
-        <img src="/images/Sam.jpg" alt="Sam Logo" /> 
-      </div>
-      <div class="dev-card" onclick="openModal('Carl-modal')">
-        <img src="/images/Carl.jpg" alt="Carl Logo" /> 
-      </div>
-    </div>
-  </section>
+<div class="dev-cards">
 
-  <!-- Modals (unchanged) -->
-   
-  <!-- [same modal HTML as before] -->
-
-    <div class="modal" id="lio-modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('lio-modal')">&times;</span>
-      <h3>Lio</h3>
+  <div class="dev-card">
+    <img src="/images/lio.jpg" alt="Lexter Logo" />
+    <div class="hover-modal">
+      <h3>John Lio Apiado</h3>
       <div class="icon-links">
         <a href="https://github.com/Liooouu" target="_blank" title="GitHub">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon" />
         </a>
-        <a href="https://www.facebook.com/Smgyup/" target="_blank" title="Facebook">
+        <a href="https://www.facebook.com/john.lio.apiado" target="_blank" title="Facebook">
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="icon" />
         </a>
       </div>
     </div>
   </div>
 
-    <div class="modal" id="daniela-modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('daniela-modal')">&times;</span>
-      <h3>Daniela</h3>
+  <div class="dev-card">
+    <img src="/images/Daniela.jpg" alt="Daniela Logo" />
+    <div class="hover-modal">
+      <h3>Daniela Nicole Barranda</h3>
       <div class="icon-links">
         <a href="https://github.com/DanielaBarranda" target="_blank" title="GitHub">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon" />
@@ -74,10 +50,10 @@
     </div>
   </div>
 
-  <div class="modal" id="hart-modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('hart-modal')">&times;</span>
-      <h3>Hart</h3>
+  <div class="dev-card">
+    <img src="/images/Hart.jpg" alt="Hart Logo" />
+    <div class="hover-modal">
+      <h3>Hart Denise De Ocampo</h3>
       <div class="icon-links">
         <a href="https://github.com/heartdenise" target="_blank" title="GitHub">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon" />
@@ -89,10 +65,10 @@
     </div>
   </div>
 
-  <div class="modal" id="lexter-modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('lexter-modal')">&times;</span>
-      <h3>Lexter</h3>
+  <div class="dev-card">
+    <img src="/images/Lex12.jpg" alt="Lio Logo" />
+    <div class="hover-modal">
+      <h3>Lexter Limbaga</h3>
       <div class="icon-links">
         <a href="https://github.com/lexterlimbaga" target="_blank" title="GitHub">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon" />
@@ -104,10 +80,10 @@
     </div>
   </div>
 
-  <div class="modal" id="Sam-modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('Sam-modal')">&times;</span>
-      <h3>Sam</h3>
+  <div class="dev-card">
+    <img src="/images/Sam.jpg" alt="Sam Logo" />
+    <div class="hover-modal">
+      <h3>Samuel Samoza</h3>
       <div class="icon-links">
         <a href="https://github.com/Samgyupp" target="_blank" title="GitHub">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon" />
@@ -119,10 +95,10 @@
     </div>
   </div>
 
-  <div class="modal" id="Carl-modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('Carl-modal')">&times;</span>
-      <h3>Carl</h3>
+  <div class="dev-card">
+    <img src="/images/Carl.jpg" alt="Carl Logo" />
+    <div class="hover-modal">
+      <h3>Carl Valino</h3>
       <div class="icon-links">
         <a href="https://github.com/Cil816" target="_blank" title="GitHub">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon" />
@@ -134,22 +110,18 @@
     </div>
   </div>
 
+</div>
+
+<header class="project-credits">
+  <p>
+    We are a group of BSIT students from FAITH Colleges who collaborated on this project as part of our Calculus-Based Physics course.
+    This website is the result of our combined efforts to apply programming skills to solve real-world physics problems.
+    From designing the user interface to implementing the core calculator functions, each of us contributed to building a tool that’s not only functional but also educational.
+    Get to know the team behind the code — future developers passionate about learning, technology, and making physics easier to understand.
+  </p>
+</header>
+
   <script>
-    function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-    }
-
-    window.onclick = function(e) {
-      const modals = document.querySelectorAll('.modal');
-      modals.forEach(modal => {
-        if (e.target === modal) modal.style.display = "none";
-      });
-    };
-
 // JS code for fetching the navigation bar
       fetch("../nav-bar/nav.html") 
       .then(response => response.text())
@@ -160,19 +132,6 @@
         console.error("Failed to load navbar:", error);
       });
   </script>
-
-  <p style="max-width: 600px; margin: 0 auto 40px auto; font-size: 20px; line-height: 1.6; color: #ccc;">
-  We are a group of BSIT students from FAITH Colleges who collaborated on this project as part of our Calculus-Based Physics course. This website is the result of our combined efforts to apply programming skills to solve real-world physics problems. From designing the user interface to implementing the core calculator functions, each of us contributed to building a tool that’s not only functional but also educational. Get to know the team behind the code — future developers passionate about learning, technology, and making physics easier to understand.
-</p>
-
-  
-  <div class="dev-cards">
-    <!-- existing dev cards here -->
-  </div>
-</section>
-
-
-
 
 </body>
 </html>

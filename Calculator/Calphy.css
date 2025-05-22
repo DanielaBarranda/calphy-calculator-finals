@@ -30,7 +30,20 @@ body {
   display: block;
   margin-bottom: 30px;
   animation: popUpDown 3s ease-in-out infinite;
+  
+  /* Glowing outline following the shape */
+  filter: drop-shadow(0 0 8px #58c6ff)
+          drop-shadow(0 0 12px #58c6ff)
+          drop-shadow(0 0 16px #58c6ff);
+  transition: filter 0.3s ease;
 }
+
+.Title:hover {
+  filter: drop-shadow(0 0 12px #58c6ff)
+          drop-shadow(0 0 18px #58c6ff)
+          drop-shadow(0 0 24px #58c6ff);
+}
+
 
 .content-wrapper {
   display: flex;
