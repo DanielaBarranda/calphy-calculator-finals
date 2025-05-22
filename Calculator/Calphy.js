@@ -9,7 +9,7 @@ fetch("../nav-bar/nav.html")
         console.error("Failed to load navbar:", error);
       });
 
-// MAIN COMPONENTS FOR THE CALCULATION FUNCTIONALITY
+// ESSENTIAL FUNCTIONS FOR THE CALCULATION FUNCTIONALITY
 
 /*This array holds the configuration for each input field in the form.
 Each object contains:
@@ -138,7 +138,7 @@ function calculateImpulseAndMomentum() { // This is the fuction. It will be call
   document.getElementById('clearBtn').style.display = 'inline-block';
 }
 
-// OTHER COMPONENTS FOR CALCULATOR
+// OTHER FUNCTIONS FOR THE CALCULATOR
 
 /* This function resets the form to its initial state.
 It makes the input fields container visible again,
