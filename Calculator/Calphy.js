@@ -60,9 +60,10 @@ container.appendChild(toggleBtn);
 /* This function calculates impulse and momentum based on user inputs.
 It retrieves values from the input fields, converts them to numbers,
 and checks if all inputs are valid before proceeding with calculations.
+
 parseFloat is used to convert the input value from a string to a decimal number 
 Getting the numeric values entered for force, time, mass, Initial Velocity, and Final Velocity*/
-function calculateImpulseAndMomentum() {
+function calculateImpulseAndMomentum() { // This is the fuction. It will be called to get the result.
   const force = parseFloat(document.getElementById("force").value);
   const time = parseFloat(document.getElementById("time").value);
   const mass = parseFloat(document.getElementById("mass").value);
@@ -76,16 +77,17 @@ function calculateImpulseAndMomentum() {
 
   // Check and calculate Impulse
   if (!isNaN(force) && !isNaN(time)) {
+  
   //IMPULSE
-    const impulse = force * time;
+    const impulse = force * time; // Formula
     resultHtml += `<li><strong>Impulse:</strong> ${impulse.toFixed(2)} N·s</li>`;
 
   //IMPULSE ALTERVATIVE FORMULA
   } else if (!isNaN(mass) && !isNaN(initialVelocity) && !isNaN(finalVelocity)) {
-    const impulseAlt = mass * (finalVelocity - initialVelocity);
+    const impulseAlt = mass * (finalVelocity - initialVelocity); //Formula
     resultHtml += `<li><strong>Impulse (alt):</strong> ${impulseAlt.toFixed(2)} N·s</li>`;
   
-  //IF INVALID YUNG ININPUT NI USER
+  //IF USER'S INPUT IS INVALID, IT WILL RESULT AN ERROR MESSAGE.
   } else {
     hasError = true;
     resultHtml += `<li style="color: red;">Impulse: Missing required inputs</li>`;
@@ -102,20 +104,20 @@ function calculateImpulseAndMomentum() {
 
   // Check and calculate Initial Momentum
   if (!isNaN(mass) && !isNaN(initialVelocity)) {
-    const initialMomentum = mass * initialVelocity;
+    const initialMomentum = mass * initialVelocity; //Formula
     resultHtml += `<li><strong>Initial Momentum:</strong> ${initialMomentum.toFixed(2)} kg·m/s</li>`;
   }
 
   // Change in Momentum (if both are available)
   if (!isNaN(mass) && !isNaN(initialVelocity) && !isNaN(finalVelocity)) {
-    const changeInMomentum = mass * (finalVelocity - initialVelocity);
+    const changeInMomentum = mass * (finalVelocity - initialVelocity); //Formula
     resultHtml += `<li><strong>Change in Momentum:</strong> ${changeInMomentum.toFixed(2)} kg·m/s</li>`;
   }
 
-  resultHtml += `</ul>`;
+  resultHtml += `</ul>`; // Calling the function to display the result in a list form.
 
   if (hasError) {
-    displayMessage("Some values are missing. Calculated only available results.", 'error');
+    displayMessage("Some values are missing. Calculated only available results.", 'error'); //Message.
   }
 
   // Save only available values
