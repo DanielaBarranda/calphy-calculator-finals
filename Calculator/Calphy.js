@@ -76,9 +76,9 @@ function calculateImpulseAndMomentum() { // This is the main functions for all t
   const finalVelocity = parseFloat(document.getElementById("finalVelocity").value);
 
   let hasError = false;
-  let resultHtml = `
+  let resultHtml = ` 
     <ul style="text-align: left; padding-left: 20px; color: black;">
-  `;
+  `; //To be callsed to display the result.
 
   // Check and calculate Impulse
   if (!isNaN(force) && !isNaN(time)) {
@@ -201,7 +201,7 @@ container.appendChild(calcBtn);
 // After creating and appending the View Last Calculation button
 container.appendChild(toggleBtn);
 
-//This part of the code if for Clear button.
+//This part of the code is for Clear button.
 const clearBtn = document.createElement("button");
 clearBtn.textContent = "Clear Results";
 clearBtn.id = "clearBtn";
@@ -217,7 +217,6 @@ function displayMessage(message, type = 'info', isHtml = false) {
   const container = document.getElementById('resultMessages');
   const msgBox = document.createElement('div');
 
-// Add CSS class based on type (info or error)
   msgBox.classList.add(type === 'error' ? 'error-message' : 'info-message');
 
   if (isHtml) {
