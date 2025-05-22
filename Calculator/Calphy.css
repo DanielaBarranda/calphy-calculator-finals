@@ -130,12 +130,11 @@ header {
 }
 
 .logs-title {
-  width: 300px;       /* Adjust width as needed */
+  width: 300px;
   height: auto;
   display: block;
-  margin: 0 auto 15px; /* Center horizontally and add bottom space */
+  margin: 0 auto 15px; 
 }
-
 
 .calculator {
   background-color: #18375d;
@@ -185,12 +184,11 @@ header {
 }
 
 .calc-title {
-  width: 350px; /* or your desired size */
+  width: 350px; 
   height: auto;
   display: block;
-  margin: 0 auto -15px auto; /* centers horizontally and adds bottom margin */
+  margin: 0 auto -15px auto; 
 }
-
 
 .step label {
   display: block;
@@ -291,6 +289,7 @@ button:hover {
    border-radius: 10px;  
    background: orange;
 }
+
 /* Inner container for message logs */
 .result-messages {
   font-family: Arial, sans-serif;

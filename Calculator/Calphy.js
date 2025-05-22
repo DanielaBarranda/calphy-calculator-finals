@@ -9,6 +9,8 @@ fetch("../nav-bar/nav.html")
         console.error("Failed to load navbar:", error);
       });
 
+// MAIN COMPONENTS FOR THE CALCULATION FUNCTIONALITY
+
 /*This array holds the configuration for each input field in the form.
 Each object contains:
 'id': used to uniquely identify the input element.
@@ -57,12 +59,15 @@ toggleBtn.id = "toggleLastBtn";
 toggleBtn.onclick = toggleLastCalculation;
 container.appendChild(toggleBtn);
 
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /* This function calculates impulse and momentum based on user inputs.
 It retrieves values from the input fields, converts them to numbers,
 and checks if all inputs are valid before proceeding with calculations.
 
 parseFloat is used to convert the input value from a string to a decimal number 
-Getting the numeric values entered for force, time, mass, Initial Velocity, and Final Velocity*/
+Getting the numeric values entered for force, time, mass, Initial Velocity, and Final Velocity
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 function calculateImpulseAndMomentum() { // This is the fuction. It will be called to get the result.
   const force = parseFloat(document.getElementById("force").value);
   const time = parseFloat(document.getElementById("time").value);
@@ -133,6 +138,7 @@ function calculateImpulseAndMomentum() { // This is the fuction. It will be call
   document.getElementById('clearBtn').style.display = 'inline-block';
 }
 
+// OTHER COMPONENTS FOR CALCULATOR
 
 /* This function resets the form to its initial state.
 It makes the input fields container visible again,
@@ -148,21 +154,25 @@ function restart() {
   });
 }
 
-// To view all the saved calculations
-function toggleLastCalculation() {
+// Function to toggle the visibility of the saved calculations section
+function toggleLastCalculation() { // Setting the function for viewing the last calculation
+
+// Get the container div where last calculation results will be shown
   const lastCalcDiv = document.getElementById("lastCalc");
+
+// Get the button that triggers this toggle action
   const button = document.getElementById("toggleLastBtn");
 
   if (!lastCalcDiv || !button) {
     displayMessage("Missing display section or button.", 'error');
-    return;
+    return; // If missing, it will show an error message.
   }
 
   if (lastCalcDiv.style.display === "none" || lastCalcDiv.style.display === "") {
     const saved = localStorage.getItem("impulseCalcData");
     if (!saved) {
       displayMessage("No saved data found.", 'error');
-      return;
+      return; // If missing, it will show an error message.
     }
 
     try {
@@ -172,6 +182,7 @@ function toggleLastCalculation() {
         output += `${key}: ${parsed[key]}\n`;
       }
 
+ // Set the output string as the text content of the display area
       document.getElementById("lastCalcData").textContent = output;
       lastCalcDiv.style.display = "block";
       button.textContent = "Hide Last Calculation";
@@ -190,7 +201,7 @@ container.appendChild(calcBtn);
 // After creating and appending the View Last Calculation button
 container.appendChild(toggleBtn);
 
-//Clear button code.
+//This part of the code if for Clear button.
 const clearBtn = document.createElement("button");
 clearBtn.textContent = "Clear Results";
 clearBtn.id = "clearBtn";
@@ -206,7 +217,7 @@ function displayMessage(message, type = 'info', isHtml = false) {
   const container = document.getElementById('resultMessages');
   const msgBox = document.createElement('div');
 
-  // Add CSS class based on type (info or error)
+// Add CSS class based on type (info or error)
   msgBox.classList.add(type === 'error' ? 'error-message' : 'info-message');
 
   if (isHtml) {

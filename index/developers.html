@@ -150,7 +150,8 @@
       });
     };
 
-    fetch("../nav-bar/nav.html") 
+// JS code for fetching the navigation bar
+      fetch("../nav-bar/nav.html") 
       .then(response => response.text())
       .then(data => {
         document.getElementById("navbar-placeholder").innerHTML = data;

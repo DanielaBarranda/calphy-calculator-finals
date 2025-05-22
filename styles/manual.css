@@ -33,7 +33,7 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 1000px;
-  position: relative; /* Important for logo positioning */
+  position: relative; 
 }
 
 /* Logo in the top right corner */

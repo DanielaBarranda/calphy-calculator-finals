@@ -97,7 +97,7 @@ body {
   display: block;
 
   animation: slideIn 2s ease-out forwards;
-  opacity: 0; /* Start invisible */
+  opacity: 0; 
 }
 @keyframes slideIn {
   0% {
