@@ -68,7 +68,7 @@ parseFloat is used to convert the input value from a string to a decimal number
 Getting the numeric values entered for force, time, mass, Initial Velocity, and Final Velocity
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-function calculateImpulseAndMomentum() { // This is the fuction. It will be called to get the result.
+function calculateImpulseAndMomentum() { // This is the main functions for all the formulas.
   const force = parseFloat(document.getElementById("force").value);
   const time = parseFloat(document.getElementById("time").value);
   const mass = parseFloat(document.getElementById("mass").value);
