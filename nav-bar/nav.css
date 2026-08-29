@@ -10,21 +10,34 @@ html, body {
   font-family: 'Segoe UI', sans-serif;
   color: #333;
   overflow-x: hidden;
+  /* Fallback only (background-color, not the shorthand) so pages that set
+     their own background-image aren't affected. Matches the navbar's own
+     color so any sub-pixel gap from --navbar-height blends in instead of
+     flashing white. */
+  background-color: #1e3a8a;
+}
+
+/* Shared spacing token: every page uses this to clear the fixed navbar below.
+   Matches the navbar's actual rendered height (measured at 56px) so pages
+   don't leave a gap between the navbar and their content. */
+:root {
+  --navbar-height: 56px;
 }
 
 /* Navigation Bar */
 .navbar {
-  position: fixed;      
-  top: 0;                 
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100%;            
-  z-index: 1000;            
+  width: 100%;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #1e3a8a;
   padding: 1rem 3rem;
   font-family: 'DynaPuff', cursive;
+  flex-wrap: wrap;
 }
 
 .logo a {
@@ -53,10 +66,78 @@ html, body {
   text-decoration: none;
   padding: 0.5rem;
   transition: background-color 0.3s;
+  white-space: nowrap;
 }
 
 .nav-links li a:hover {
   background-color: white;
   border-radius: 4px;
   color: #1e3a8a;
+}
+
+/* Mobile menu toggle — CSS-only (checkbox hack) so it works even though
+   the navbar markup is injected via fetch()+innerHTML, which never runs
+   <script> tags that arrive that way. */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.nav-toggle-label span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 52px;
+  }
+
+  .navbar {
+    padding: 0.85rem 1.5rem;
+  }
+
+  .nav-toggle-label {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1e3a8a;
+    padding: 0.5rem 1.5rem 1rem;
+  }
+
+  .nav-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .logo a {
+    font-size: 1rem;
+  }
 }

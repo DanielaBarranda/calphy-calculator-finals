@@ -6,63 +6,57 @@ body {
 
 /* Background is now handled separately */
 .background-section {
-  background-image: url('/images/howbg.png');
+  background-image: url('../images/howbg.png');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-  padding: 30px;
+  /* top padding clears the fixed navbar (nav.css) */
+  padding: calc(var(--navbar-height, 72px) + 40px) 30px 30px;
   color: white;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
 
-
 /* Content section on top of background */
 .how-to-use-section {
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: 1000px;
-  right: -230px;
-  margin-top: 130px;
+  margin: 0 auto;
+  position: relative;
 }
 
-/* "How to Use?" Header image */
-/* Container for layout and positioning */
-.how-to-use-section {
-  display: flex;
-  flex-direction: column;
-  max-width: 1000px;
-  position: relative; 
-}
-
-/* Logo in the top right corner */
+/* "How to Use?" header image, pinned to the corner on wide screens */
 .how-header {
-  width: 500px;
+  width: 340px;
+  max-width: 40%;
+  height: auto;
   position: absolute;
-  top: -100px;
-  right: -180px;
+  top: -70px;
+  right: 0;
   z-index: 10;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .how-header:hover {
   transform: scale(1.05);
   filter: drop-shadow(0 0 10px rgba(96, 205, 255, 0.911));
   cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
 }
-
 
 /* Boxed content area */
 .how-content {
   background: rgba(0, 0, 0, 0.6);
   padding: 40px 50px;
   border-radius: 12px;
+  margin-top: 60px;
 }
 
 /* Lists */
 .how-content ol {
-  padding-left: -90px;
+  padding-left: 20px;
 }
 .how-content ul {
   padding-left: 20px;
@@ -82,4 +76,35 @@ body {
   border-radius: 6px;
   font-style: italic;
   color: #ffdede;
+}
+
+/* Tablet: header image moves above the content instead of overlapping it */
+@media (max-width: 700px) {
+  .how-to-use-section {
+    align-items: center;
+  }
+
+  .how-header {
+    position: static;
+    max-width: 220px;
+    width: 60%;
+    margin: 0 auto 20px;
+  }
+
+  .how-content {
+    margin-top: 0;
+    padding: 30px 25px;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .background-section {
+    padding: calc(var(--navbar-height, 72px) + 20px) 15px 20px;
+  }
+
+  .how-content {
+    padding: 20px 18px;
+    font-size: 0.9rem;
+  }
 }

@@ -42,22 +42,29 @@ inputFields.forEach(field => {
   container.appendChild(input); // Add the input field to the container
 });
 
-/* /* This code creates a button element for triggering the calculation.
+/* Row that holds the action buttons (Calculate / View Last Calculation / Clear),
+laid out with flexbox in CSS instead of fixed pixel margins so it stays
+usable at any calculator width. */
+const buttonRow = document.createElement("div");
+buttonRow.className = "button-row";
+container.appendChild(buttonRow);
+
+/* This code creates a button element for triggering the calculation.
 It sets the button text to "Calculate" and assigns the function
 `calculateImpulseAndMomentum` to run when the button is clicked. */
 const calcBtn = document.createElement("button"); //Button element
 calcBtn.textContent = "Calculate"; // Setting the button text
 calcBtn.onclick = calculateImpulseAndMomentum; // Meaning, when we click the button, it will calculate all the set formulas in the function called calcuImpulseAnd Momentum
-container.appendChild(calcBtn); //Adding the button to the container
+buttonRow.appendChild(calcBtn); //Adding the button to the row
 
-/* It sets the button text to "View Last Calculation". This code creates 
+/* It sets the button text to "View Last Calculation". This code creates
 a button to toggle the display of the last calculation.  */
 const toggleBtn = document.createElement("button");
 toggleBtn.textContent = "View Last Calculation";
 toggleBtn.className = "T-button";
 toggleBtn.id = "toggleLastBtn";
 toggleBtn.onclick = toggleLastCalculation;
-container.appendChild(toggleBtn);
+buttonRow.appendChild(toggleBtn);
 
 /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /* This function calculates impulse and momentum based on user inputs.
@@ -140,20 +147,6 @@ function calculateImpulseAndMomentum() { // This is the main functions for all t
 
 // OTHER FUNCTIONS FOR THE CALCULATOR
 
-/* This function resets the form to its initial state.
-It makes the input fields container visible again,
-hides the results section, and clears all input values. */
-function restart() {
-  document.querySelector(".step").style.display = "block";
-  document.getElementById("results").style.display = "none";
-
-  // Clearing all the inputted values
-  inputFields.forEach(field => {
-    const input = document.getElementById(field.id);
-    if (input) input.value = "";
-  });
-}
-
 // Function to toggle the visibility of the saved calculations section
 function toggleLastCalculation() { // Setting the function for viewing the last calculation
 
@@ -195,12 +188,6 @@ function toggleLastCalculation() { // Setting the function for viewing the last 
   }
 }
 
-// After creating and appending the Calculate button
-container.appendChild(calcBtn);
-
-// After creating and appending the View Last Calculation button
-container.appendChild(toggleBtn);
-
 //This part of the code is for Clear button.
 const clearBtn = document.createElement("button");
 clearBtn.textContent = "Clear Results";
@@ -210,7 +197,7 @@ clearBtn.onclick = () => {
   document.getElementById('resultMessages').innerHTML = '';
   clearBtn.style.display = "none";
 };
-container.appendChild(clearBtn);
+buttonRow.appendChild(clearBtn);
 
 // Displaying the messages
 function displayMessage(message, type = 'info', isHtml = false) {

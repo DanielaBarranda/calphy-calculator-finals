@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Share Tech Mono', monospace;
-  background-image: url("/images/Background.png");
+  background-image: url("../images/Background.png");
   color: #ffffff;
   position: relative;
   min-height: 100vh;
@@ -22,10 +22,11 @@ body {
 }
 
 .main-section img.heading-image {
-  max-width: 100%;
+  max-width: 90%;
   width: 700px;
   height: auto;
-  margin-top: 80px;
+  /* clears the fixed navbar (nav.css) plus original spacing */
+  margin-top: calc(var(--navbar-height, 72px) + 30px);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -191,9 +192,20 @@ body {
 
 /* Mobile responsiveness */
 @media (max-width: 600px) {
+  .dev-cards {
+    margin-top: 40px;
+    gap: 25px;
+  }
+
   .dev-card {
     width: 120px;
     height: 160px;
+    top: 0;
+  }
+
+  .project-credits {
+    font-size: 15px;
+    padding: 16px;
   }
 
   .modal-content {
